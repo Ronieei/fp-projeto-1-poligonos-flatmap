@@ -1,9 +1,6 @@
 package com.example;
-
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -28,7 +25,7 @@ class PoligonosAppTest {
         }
     }
 
-    @Test
+   @Test
     void tipoPoligonos() {
         final var resultList = app.tipoPoligonos().stream().map(String::toLowerCase).map(String::trim).toList();
         assertThat(resultList).isEqualTo(List.of("quadrilátero", "quadrilátero", "triângulo", "pentágono", "hexágono"));
