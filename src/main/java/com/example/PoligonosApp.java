@@ -132,7 +132,19 @@ public class PoligonosApp extends Application {
      */
     protected List<String> tipoPoligonos(){
         // TODO Apague esta linha e a próxima e implemente seu código
-        return List.of();
+        return pontosPoligonos.stream()
+                .flatMap(pontos -> {
+                    int numeroDePontos = pontos.size();
+                    String tipo = switch (numeroDePontos) {
+                        case 3 -> "Triângulo";
+                        case 4 -> "Quadrilátero";
+                        case 5 -> "Pentágono";
+                        case 6 -> "Hexágono";
+                        default -> "Polígono com " + numeroDePontos + " lados";
+                    };
+                    return Stream.of(tipo);
+                })
+                .toList();
     }
 
     /**
